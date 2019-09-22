@@ -4,6 +4,8 @@
 # This is a Ruby implementation of the ideal solution for a common interview
 # question I give.
 class PhoneDrop
+  attr_reader :bottom_range, :drops
+
   BROKEN = 'Broken'.freeze
   IN_TACT = 'In Tact'.freeze
   MAX_FLOORS = 100 # Solution could be dynamic for this number
@@ -50,7 +52,8 @@ class PhoneDrop
     interval_search
     linear_search
     puts 'Drops: ' + @drops.to_s
-    puts 'Floor: ' + (@current_floor - 1).to_s
+    @bottom_range = @current_floor - 1
+    puts 'Floor: ' + bottom_range.to_s
   end
 end
 
