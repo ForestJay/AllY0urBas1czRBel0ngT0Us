@@ -4,7 +4,7 @@
 # This is a Ruby implementation of the ideal solution for a common interview
 # question.
 class MissingNumber
-  NUMBERS = [2, 6, 9, 8, 1, 5, 3, 10, 4, 11, 12]
+  NUMBERS = [2, 6, 9, 8, 1, 5, 3, 10, 4, 11, 12].freeze
 
   attr_accessor :sum
 
