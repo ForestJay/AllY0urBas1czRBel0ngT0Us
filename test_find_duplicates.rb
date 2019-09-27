@@ -3,7 +3,6 @@
 require_relative 'find_duplicates'
 require 'minitest/autorun'
 
-# Class for testing PhoneDrop methods
 class TestFindDupes < Minitest::Test
   def test_find_missing
     find_dupes = FindDupes.new

@@ -6,6 +6,8 @@ require_relative 'meeting'
 # This is a Ruby implementation of the ideal solution for a common interview
 # question.
 class MaxMeetingsInRoom
+  attr_accessor :room_meetings
+  
   def check_overlaps(meeting)
     @room_meetings.each do |room_meeting|
       return true if room_meeting.overlaps(meeting)

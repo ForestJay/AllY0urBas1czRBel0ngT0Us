@@ -3,7 +3,6 @@
 require_relative 'meeting'
 require 'minitest/autorun'
 
-# Class for testing PhoneDrop methods
 class TestMeeting < Minitest::Test
   def test_length
     assert_equal 5, Meeting.new(0, 5).length
