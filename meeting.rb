@@ -20,6 +20,6 @@ class Meeting
   end
 
   def overlaps(other)
-    !(other.finish < @start || @finish < other.start)
+    !(other.finish <= @start || @finish <= other.start)
   end
 end
