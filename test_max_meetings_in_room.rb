@@ -3,6 +3,7 @@
 require_relative 'max_meetings_in_room'
 require 'minitest/autorun'
 
+# Class for testing
 class TestMaxMeetingsInRoom < Minitest::Test
   def test_array
     max_meetings = MaxMeetingsInRoom.new
