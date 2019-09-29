@@ -7,7 +7,7 @@ class TestFindDupes < Minitest::Test
   def test_find_missing
     find_dupes = FindDupes.new
     find_dupes.list_dupes
-    expected = []
+    expected = {}
     expected[1] = 1
     expected[3] = 1
     expected[5] = 1

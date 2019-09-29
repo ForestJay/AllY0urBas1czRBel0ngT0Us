@@ -10,7 +10,7 @@ class FindDupes
   attr_accessor :count
 
   def build_count
-    @count = []
+    @count = {}
     NUMBERS.each do |num|
       if @count[num].nil?
         @count[num] = 1
@@ -22,11 +22,9 @@ class FindDupes
 
   def list_dupes
     build_count
-    # This is expensive!
-    @count.each_with_index do |val, index|
-      if val.nil?
-      elsif @count[index] > 1
-        puts 'There are ' + val.to_s + ' of number ' + index.to_s +
+    @count.each do |key, val|
+      if val > 1
+        puts 'There are ' + val.to_s + ' of number ' + key.to_s +
              ' in the list!'
       end
     end
