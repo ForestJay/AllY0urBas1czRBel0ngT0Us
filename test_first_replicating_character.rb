@@ -9,5 +9,6 @@ class TestFindFirstReplicatingCharacter < Minitest::Test
     assert_equal 'A', FirstReplicatingCharacter.new('ABCA').find
     assert_equal 'B', FirstReplicatingCharacter.new('BCABA').find
     assert_nil FirstReplicatingCharacter.new('ABC').find
+    assert_equal 'B', FirstReplicatingCharacter.new('DBCABA').find
   end
 end
