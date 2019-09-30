@@ -1,6 +1,3 @@
-#!/usr/bin/ruby
-# Written by Forest J. Handford (She/Her)
-
 # This is a Ruby implementation of the ideal solution for a common interview
 # question.
 class SumSrc
@@ -11,12 +8,10 @@ class SumSrc
 
   # Return the two values from @numbers that create @sum
   def find
-    @unprocessed = @numbers
-    @unprocessed.each do |first|
-      @unprocessed = @unprocessed.drop(1)
-      @unprocessed.each do |number|
-        return [first, number] if @sum == first + number
-      end
+    partners = {}
+    @numbers.each do |number|
+      return [partners[number], number] if partners[number]
+      partners[@sum - number] = number
     end
     nil
   end
