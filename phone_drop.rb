@@ -21,7 +21,7 @@ class PhoneDrop
   def test_floor
     @drops += 1
     puts 'Testing floor ' + @current_floor.to_s + ' with drop ' +
-      @drops.to_s + '!'
+         @drops.to_s + '!'
     FLOORS[@current_floor - 1]
   end
 
@@ -57,7 +57,4 @@ class PhoneDrop
   end
 end
 
-if $PROGRAM_NAME == __FILE__
-  test = PhoneDrop.new
-  test.find_floor
-end
+PhoneDrop.new.find_floor if $PROGRAM_NAME == __FILE__
