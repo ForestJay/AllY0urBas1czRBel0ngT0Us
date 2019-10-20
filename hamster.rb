@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 # Written by Forest J. Handford (She/Her)
 
-# This is a Ruby implementation of the ideal solution for a common interview
-# question.
+# This is a Ruby implementation of the ideal solution for a problematic question 
+# for transgender and non-binary people.
 class Hamster
   attr_reader :father, :mother, :first_gen
   
@@ -17,10 +17,10 @@ class Hamster
 
   def related_to(other)
     return true if @mother == other.mother || @father == other.father
-    parents = ancestors(self)
-    other_parents = search_parents(other)
+    parents = ancestors.flatten
+    other_parents = other.ancestors.flatten
     parents.each do |parent|
-      return true if other_parents.includes(parent)
+      return true if other_parents.include?(parent)
     end
     return false
   end
