@@ -1,18 +1,20 @@
 #!/usr/bin/ruby
 # Written by Forest J. Handford (She/Her)
-#
-# Tests w/ Tree Traversal take
-#   0.000574s, 3483.1373 runs/s, 13932.5490 assertions/s.
 
 # This is a Ruby implementation of the ideal solution for a problematic question
 # for transgender and non-binary people.
 class Hamster
-  attr_reader :father, :mother, :first_gen
+  attr_reader :father, :mother, :first_gen, :first_gen_ancestors
 
   def initialize(mother, father)
     if mother && father
       @mother = mother
       @father = father
+      if @mother.first_gen && @father.first_gen
+        @first_gen_ancestors = [@mother, @father]
+      else
+        @first_gen_ancestors = [@mother.first_gen_ancestors, @father.first_gen_ancestors].flatten.uniq
+      end
     else
       @first_gen = true
     end
@@ -20,16 +22,9 @@ class Hamster
 
   def related_to(other)
     return true if @mother == other.mother || @father == other.father
-    parents = ancestors.flatten
-    other_parents = other.ancestors.flatten
-    parents.each do |parent|
-      return true if other_parents.include?(parent)
+    first_gen_ancestors.each do |ancestor|
+      return true if other.first_gen_ancestors.include?(ancestor)
     end
     false
-  end
-
-  def ancestors
-    return [] if first_gen
-    [mother, father, mother.ancestors, father.ancestors]
   end
 end
