@@ -6,7 +6,7 @@ class String
   end
 
   def decompress
-    expanded_string_from(0, @string.size - 1)
+    expanded_string_from(0, @string.size)
   end
 
   def expanded_string_from(start, finish)
@@ -42,9 +42,9 @@ class String
 
   def closing_brace(index)
     open = 0
-    @string.split('').drop(index).each do |char|
+    @string.split('').drop(index).each_with_index do |char, sub_index|
       if char == ']'
-        return index if open.zero?
+        return index + sub_index if open.zero?
         open -= 1
       elsif char == '['
         open += 1
