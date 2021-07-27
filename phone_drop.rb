@@ -1,4 +1,6 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
+
 # Written by Forest J. Handford (She/Her)
 
 # This is a Ruby implementation of the ideal solution for a common interview
@@ -6,8 +8,8 @@
 class PhoneDrop
   attr_reader :bottom_range, :drops
 
-  BROKEN = 'Broken'.freeze
-  IN_TACT = 'In Tact'.freeze
+  BROKEN = 'Broken'
+  IN_TACT = 'In Tact'
   MAX_FLOORS = 100 # Solution could be dynamic for this number
   FLOORS = Array.new(MAX_FLOORS - 2, IN_TACT) + [BROKEN, BROKEN]
 
@@ -20,19 +22,19 @@ class PhoneDrop
 
   def test_floor
     @drops += 1
-    puts 'Testing floor ' + @current_floor.to_s + ' with drop ' +
-         @drops.to_s + '!'
+    puts "Testing floor #{@current_floor} with drop #{@drops}!"
     FLOORS[@current_floor - 1]
   end
 
   def interval_search
     while @current_floor < @top_range
       test_value = test_floor
-      if test_value == IN_TACT
+      case test_value
+      when IN_TACT
         @bottom_range = @current_floor
         @interval -= 1
         @current_floor += @interval
-      elsif test_value == BROKEN
+      when BROKEN
         @top_range = @current_floor
         break
       end
@@ -51,9 +53,9 @@ class PhoneDrop
   def find_floor
     interval_search
     linear_search
-    puts 'Drops: ' + @drops.to_s
+    puts "Drops: #{@drops}"
     @bottom_range = @current_floor - 1
-    puts 'Floor: ' + bottom_range.to_s
+    puts "Floor: #{bottom_range}"
   end
 end
 

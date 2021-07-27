@@ -1,4 +1,6 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
+
 # Written by Forest J. Handford (She/Her)
 
 # This is a Ruby implementation of the ideal solution for a common interview
@@ -22,6 +24,4 @@ class MissingNumber
   end
 end
 
-if $PROGRAM_NAME == __FILE__
-  puts 'The missing number is ' + MissingNumber.new.find_missing.to_s
-end
+puts "The missing number is #{MissingNumber.new.find_missing}" if $PROGRAM_NAME == __FILE__

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This is class stores meeting data.
 class Meeting
   attr_accessor :start, :finish
@@ -12,7 +14,7 @@ class Meeting
   end
 
   def times
-    @start.to_s + ' - ' + @finish.to_s + ' (' + length.to_s + ')'
+    "#{@start} - #{@finish} (#{length})"
   end
 
   def <(other)

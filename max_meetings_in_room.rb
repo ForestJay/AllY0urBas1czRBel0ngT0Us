@@ -1,4 +1,6 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
+
 # Written by Forest J. Handford (She/Her)
 
 require_relative 'meeting'
@@ -37,7 +39,7 @@ class MaxMeetingsInRoom
     count = 0
     @room_meetings.each do |meeting|
       count += 1
-      puts 'Meeting #' + count.to_s + ': ' + meeting.times
+      puts "Meeting ##{count}: #{meeting.times}"
     end
   end
 end

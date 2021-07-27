@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This is a Ruby implementation of the ideal solution for a common interview
 # question.
 class SumSrc
@@ -11,6 +13,7 @@ class SumSrc
     partners = {}
     @numbers.each do |number|
       return [partners[number], number] if partners[number]
+
       partners[@sum - number] = number
     end
     nil

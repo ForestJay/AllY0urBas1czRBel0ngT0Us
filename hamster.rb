@@ -1,4 +1,6 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
+
 # Written by Forest J. Handford (She/Her)
 
 # This is a Ruby implementation of the ideal solution for a problematic question
@@ -10,11 +12,11 @@ class Hamster
     if mother && father
       @mother = mother
       @father = father
-      if @mother.first_gen && @father.first_gen
-        @first_gen_ancestors = [@mother, @father]
-      else
-        @first_gen_ancestors = [@mother.first_gen_ancestors, @father.first_gen_ancestors].flatten.uniq
-      end
+      @first_gen_ancestors = if @mother.first_gen && @father.first_gen
+                               [@mother, @father]
+                             else
+                               [@mother.first_gen_ancestors, @father.first_gen_ancestors].flatten.uniq
+                             end
     else
       @first_gen = true
     end
@@ -22,6 +24,7 @@ class Hamster
 
   def related_to(other)
     return true if @mother == other.mother || @father == other.father
+
     first_gen_ancestors.each do |ancestor|
       return true if other.first_gen_ancestors.include?(ancestor)
     end

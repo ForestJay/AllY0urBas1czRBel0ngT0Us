@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Written by Forest J. Handford (She/Her)
 
 require_relative 'first_replicating_character'

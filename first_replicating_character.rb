@@ -1,4 +1,6 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
+
 # Written by Forest J. Handford (She/Her)
 
 # This is a Ruby implementation of the ideal solution for a common interview

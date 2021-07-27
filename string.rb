@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This is a Ruby implementation of the ideal solution for a common interview
 # question.
 class String
@@ -43,10 +45,12 @@ class String
   def closing_brace(index)
     open = 0
     @string.split('').drop(index).each_with_index do |char, sub_index|
-      if char == ']'
+      case char
+      when ']'
         return index + sub_index if open.zero?
+
         open -= 1
-      elsif char == '['
+      when '['
         open += 1
       end
     end

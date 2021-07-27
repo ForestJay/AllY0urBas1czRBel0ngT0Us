@@ -1,4 +1,6 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
+
 # Written by Forest J. Handford (She/Her)
 
 # This is a Ruby implementation of the ideal solution for a common interview
@@ -23,10 +25,7 @@ class FindDupes
   def list_dupes
     build_count
     @count.each do |key, val|
-      if val > 1
-        puts 'There are ' + val.to_s + ' of number ' + key.to_s +
-             ' in the list!'
-      end
+      puts "There are #{val} of number #{key} in the list!" if val > 1
     end
   end
 end

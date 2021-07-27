@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Written by Forest J. Handford (She/Her)
 
 require_relative 'phone_drop'
